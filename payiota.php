@@ -1,10 +1,8 @@
 <?php
-
 /*
- *  @author CoinPayments.net
- *  @copyright  2013-2018 CoinPayments.net
+ *  @author PayIOTA.me (Based on CoinPayments.net plugin)
+ *  @copyright  Laszlo Molnarfi
  *  @version 1.0
- *  Based on paypalusa module by PrestoShop SA
  *  
  *  @author PrestaShop SA <contact@prestashop.com>
  *  @copyright  2007-2013 PrestaShop SA
@@ -116,7 +114,6 @@ class PayIOTA extends PaymentModule
 			unset($this->_validation[count($this->_validation)-1]);
 		}
 
-		/* If PayPal Payments Advanced has been enabled, PayPal's Manager credentials must be filled */
 		if (Configuration::get('PAYIOTA_API_KEY') == '' || Configuration::get('PAYIOTA_VERIFICATION_KEY') == '')
 			$this->_error[] = $this->l('In order to use PayIOTA.me, please provide your PayIOTA.me API key and PayIOTA.me verification key.');
 
@@ -222,7 +219,7 @@ class PayIOTA extends PaymentModule
 	}
 
 	/* Order Transaction ID update
-	 * Attach a CoinPayments.net Transaction ID to an existing order (it will be displayed in the Order details section of the Back-office)
+	 * Attach a PayIOTA.me Transaction ID to an existing order (it will be displayed in the Order details section of the Back-office)
 	 *
 	 * @param $id_order integer Order ID
 	 * @param $id_transaction string Transaction ID

@@ -5,14 +5,7 @@
 **
 ** International Registered Trademark & Property of PrestaShop SA
 **
-** Description: CoinPayments.net payment form template
-**
-** This template is displayed on the payment page and called by the Payment hook
-**
-** Step 1: The customer is validating this form by clicking on the CoinPayments payment button
-** Step 3: The transaction success or failure is sent to you by CoinPayments at the following URL: http://www.mystore.com/modules/coinpayments/controllers/front/validation.php?pps=1
-** This step is also called IPN ("Instant Payment Notification")
-** Step 4: The customer is redirected to his/her "Order history" page ("My account" section)
+** Description: PayIOTA.me payment form template
 *}
 
 

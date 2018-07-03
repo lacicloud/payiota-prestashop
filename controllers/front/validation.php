@@ -1,9 +1,8 @@
 <?php
 /*
- *  @author CoinPayments.net
- *  @copyright  2013 CoinPayments.net
+ *  @author PayIOTA.me (Based on CoinPayments.net plugin)
+ *  @copyright  Laszlo Molnarfi
  *  @version 1.0
- *  Based on paypalusa module by PrestoShop SA
  *  
  *  @author PrestaShop SA <contact@prestashop.com>
  *  @copyright  2007-2013 PrestaShop SA
