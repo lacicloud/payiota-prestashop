@@ -154,12 +154,6 @@ class PayIOTA extends PaymentModule
 		if ($_GET["payiota"] == "true")
 		{
 
-			$this->context->smarty->assign(array(
-				'payiota_cancel_url' => $this->context->link->getPageLink('order.php'),
-				'payiota_success_url' => $this->context->link->getPageLink('order-confirmation.php')));
-
-
-
 			//sicne we cannot use PHP in .tpl files (not recommended), we will do all our actions here. 
 			$custom = $this->context->cart->id.":".$this->context->cart->id_shop;
 			
@@ -206,16 +200,12 @@ class PayIOTA extends PaymentModule
 					}
 					$response = json_decode($response, true);
 
-					//assign response variables to smarty
-					$this->context->smarty->assign('address', $response[0]);
-					$this->context->smarty->assign('price', $response[1]);
-
-
-			$html .= $this->display(__FILE__, 'views/templates/hooks/standard.tpl');
+					header("Location: https://payiota.me/external.php?address=".$response[0]."&price=".$response[1]."&success_url=".$this->context->link->getPageLink('order-confirmation.php')."&cancel_url=".$this->context->link->getPageLink('order.php'));
+					die(0);
 		} else {
 			$url_to_redirect = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']."&payiota=true";
 			$this->context->smarty->assign('url_to_redirect', $url_to_redirect);
-			$html .= $this->display(__FILE__, 'views/templates/hooks/selection.tpl');
+			$html .= $this->display(__FILE__, 'views/templates/hooks/standard.tpl');
 		}
 		return $html;
 	}

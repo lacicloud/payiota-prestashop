@@ -10,14 +10,8 @@
 
 
 <p class="payment_module">
-<form name="payiotaform" action="https://payiota.me/external.php" method="GET">
-		<input type="hidden" name="address" value="{$address}">
-		<input type="hidden" name="price" value="{$price}">
-		<input type="hidden" name="success_url" value="{$payiota_success_url}">
-		<input type="hidden" name="cancel_url" value="{$payiota_cancel_url}">
-		<input type="image" id="submitbutton" width="301" style="cursor: pointer;" src="https://payiota.me/resources/paynow.png" alt="Click here to complete checkout at PayIOTA.me!">
-		</form>
+<form name="payiotaform" action="{$url_to_redirect}" method="POST">
+		<input type="hidden" class="hidden" name="step" value="3">
+		<input type="image" width="301" style="cursor: pointer;" src="https://payiota.me/resources/paynow.png" alt="Click here to complete checkout at PayIOTA.me!">
+</form>	
 </p>
-<script>
-	document.getElementById('submitbutton').click();
-</script>
