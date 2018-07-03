@@ -151,9 +151,7 @@ class PayIOTA extends PaymentModule
 	public function hookPayment($params)
 	{
 		$html = '';
-		$payiota_checkout_no_token = (!isset($this->context->cookie->payiota_checkout_token) || empty($this->context->cookie->payiota_checkout_token));
-
-		if ($payiota_checkout_no_token)
+		if ($_GET["payiota"] == "true")
 		{
 
 			$this->context->smarty->assign(array(
@@ -214,6 +212,10 @@ class PayIOTA extends PaymentModule
 
 
 			$html .= $this->display(__FILE__, 'views/templates/hooks/standard.tpl');
+		} else {
+			$url_to_redirect = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']."&payiota=true";
+			$this->context->smarty->assign('url_to_redirect', $url_to_redirect);
+			$html .= $this->display(__FILE__, 'views/templates/hooks/selection.tpl');
 		}
 		return $html;
 	}
