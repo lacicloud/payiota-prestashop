@@ -203,7 +203,7 @@ class PayIOTA extends PaymentModule
 					header("Location: https://payiota.me/external.php?address=".$response[0]."&price=".$response[1]."&success_url=".$this->context->link->getPageLink('order-confirmation.php')."&cancel_url=".$this->context->link->getPageLink('order.php'));
 					die(0);
 		} else {
-			$url_to_redirect = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']."&payiota=true";
+			$url_to_redirect = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']."?payiota=true";
 			$this->context->smarty->assign('url_to_redirect', $url_to_redirect);
 			$html .= $this->display(__FILE__, 'views/templates/hooks/standard.tpl');
 		}
